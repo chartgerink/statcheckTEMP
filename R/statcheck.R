@@ -216,7 +216,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         FRaw <- substring(txt,FLoc,FLoc+attr(FLoc,"match.length")-1)
         
         # Get raw text to check for gender effect (not in normal statcheck package!)
-        sentence <- substring(txt,FLoc-150,tLoc+150)
+        sentence <- substring(txt,FLoc-150,FLoc+150)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
@@ -312,7 +312,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         rRaw <- substring(txt,rLoc,rLoc+attr(rLoc,"match.length")-1)
         
         # Get raw text to check for gender effect (not in normal statcheck package!)
-        sentence <- substring(txt,rLoc-150,tLoc+150)
+        sentence <- substring(txt,rLoc-150,rLoc+150)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
@@ -405,8 +405,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Get raw text of z-values:
         zRaw <- substring(txt,zLoc,zLoc+attr(zLoc,"match.length")-1)
         
-                # Get raw text to check for gender effect (not in normal statcheck package!)
-        sentence <- substring(txt,zLoc-150,tLoc+150)
+       # Get raw text to check for gender effect (not in normal statcheck package!)
+        sentence <- substring(txt,zLoc-150,zLoc+150)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
@@ -501,7 +501,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         substr(chi2Raw,1,1)[grepl("\\d",substr(chi2Raw,1,1))] <- " "
         
                 # Get raw text to check for gender effect (not in normal statcheck package!)
-        sentence <- substring(txt,chi2Loc-150,tLoc+150)
+        sentence <- substring(txt,chi2Loc-150,chi2Loc+150)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
