@@ -504,11 +504,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence <- substring(txt,chi2Loc-100,chi2Loc+100)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) 
-                  |grepl("sex", sentence) 
-                  | (grepl("female", sentence) & grepl("male", sentence))
-                  | (grepl(" man", sentence) & grepl(" woman", sentence))
-                  | (grepl(" men", sentence) & grepl(" women", sentence))
+        gender <- grepl("gender", sentence) | grepl("sex", sentence)  | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" men", sentence) & grepl(" women", sentence))
 
         # remove sample size if reported for calculations
         # save full result for "Raw" in final data frame
