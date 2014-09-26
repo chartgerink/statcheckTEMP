@@ -27,7 +27,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                     Value=NULL,Reported.Comparison=NULL,Reported.P.Value=NULL, Computed = NULL, 
                     Error = NULL,DecisionError=NULL,CopyPaste=NULL, Location = NULL,
                     stringsAsFactors=FALSE,dec=NULL,testdec=NULL,OneTail=NULL,OneTailedInTxt=NULL,
-                    APAfactor = NULL)
+                    APAfactor = NULL, gender=NULL)
   class(Res) <- c("statcheck","data.frame")
   OneTailedInTxt <- NULL
   
@@ -121,6 +121,12 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Get raw text of t-values:
         tRaw <- substring(txt,tLoc,tLoc+attr(tLoc,"match.length")-1)
         
+        # Get raw text to check for gender effect (not in normal statcheck package!)
+        sentence <- substring(txt,tLoc-150,tLoc+150)
+
+        # Check for mention of gender
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+
         # remove commas (thousands separators)
         tRaw <- gsub("(?<=\\d),(?=\\d+)","",tRaw,perl=TRUE)
         
@@ -191,7 +197,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            stringsAsFactors=FALSE,
                            dec = dec,
                            testdec=testdec,
-                           OneTailedInTxt=OneTailedInTxt)
+                           OneTailedInTxt=OneTailedInTxt,
+                           gender=gender)
         
         # Append, clean and close:
         Res <- rbind(Res,tRes)
@@ -208,6 +215,12 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Get raw text of F-values:
         FRaw <- substring(txt,FLoc,FLoc+attr(FLoc,"match.length")-1)
         
+        # Get raw text to check for gender effect (not in normal statcheck package!)
+        sentence <- substring(txt,FLoc-150,tLoc+150)
+
+        # Check for mention of gender
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+
         # Extract location of numbers:
         nums <- gregexpr("(\\d*\\.?\\d+\\s?e?-?\\d*)|ns",FRaw,ignore.case=TRUE)
         
@@ -279,7 +292,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            stringsAsFactors=FALSE,
                            dec=dec,
                            testdec=testdec,
-                           OneTailedInTxt=OneTailedInTxt)
+                           OneTailedInTxt=OneTailedInTxt,
+                           gender=gender)
         
         # Append, clean and close:
         Res <- rbind(Res,FRes)
@@ -297,6 +311,13 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Get raw text of r-values:
         rRaw <- substring(txt,rLoc,rLoc+attr(rLoc,"match.length")-1)
         
+        # Get raw text to check for gender effect (not in normal statcheck package!)
+        sentence <- substring(txt,rLoc-150,tLoc+150)
+
+        # Check for mention of gender
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+
+
         # Replace weird codings of a minus sign with actual minus sign:
         # First remove spaces
         rRaw <- gsub("(?<=\\=)\\s+(?=.*\\,)","",rRaw,perl=TRUE)
@@ -366,7 +387,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            stringsAsFactors=FALSE,
                            dec=dec,
                            testdec=testdec,
-                           OneTailedInTxt=OneTailedInTxt)
+                           OneTailedInTxt=OneTailedInTxt,
+                           gender=gender)
         
         # Append, clean and close:
         Res <- rbind(Res,rRes)
@@ -383,6 +405,12 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Get raw text of z-values:
         zRaw <- substring(txt,zLoc,zLoc+attr(zLoc,"match.length")-1)
         
+                # Get raw text to check for gender effect (not in normal statcheck package!)
+        sentence <- substring(txt,zLoc-150,tLoc+150)
+
+        # Check for mention of gender
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+
         # remove any character before test statistic
         zRaw <- gsub(".?(z|Z)","Z",zRaw,perl=TRUE)
         
@@ -453,7 +481,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            stringsAsFactors=FALSE,
                            dec=dec,
                            testdec=testdec,
-                           OneTailedInTxt=OneTailedInTxt)
+                           OneTailedInTxt=OneTailedInTxt,
+                           gender=gender)
         
         # Append, clean and close:
         Res <- rbind(Res,zRes)
@@ -471,6 +500,12 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         chi2Raw <- substring(txt,chi2Loc,chi2Loc+attr(chi2Loc,"match.length")-1)
         substr(chi2Raw,1,1)[grepl("\\d",substr(chi2Raw,1,1))] <- " "
         
+                # Get raw text to check for gender effect (not in normal statcheck package!)
+        sentence <- substring(txt,chi2Loc-150,tLoc+150)
+
+        # Check for mention of gender
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+
         # remove sample size if reported for calculations
         # save full result for "Raw" in final data frame
         chi2Raw_inclN <- chi2Raw
@@ -536,7 +571,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                               stringsAsFactors=FALSE,
                               dec=dec,
                               testdec=testdec,
-                              OneTailedInTxt=OneTailedInTxt)
+                              OneTailedInTxt=OneTailedInTxt,
+                              gender=gender)
         
         # Append, clean and close:
         Res <- rbind(Res,chi2Res)
@@ -867,7 +903,8 @@ Res <- data.frame(Source = Res$Source,
                   OneTail = Res$OneTail,
                   OneTailedInTxt = Res$OneTailedInTxt,
                   CopyPaste = Res$CopyPaste,
-                  APAfactor = Res$APAfactor
+                  APAfactor = Res$APAfactor,
+                  gender = Res$gender
 )
 
 class(Res) <- c("statcheck","data.frame")
