@@ -27,7 +27,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                     Value=NULL,Reported.Comparison=NULL,Reported.P.Value=NULL, Computed = NULL, 
                     Error = NULL,DecisionError=NULL,CopyPaste=NULL, Location = NULL,
                     stringsAsFactors=FALSE,dec=NULL,testdec=NULL,OneTail=NULL,OneTailedInTxt=NULL,
-                    APAfactor = NULL, gender=NULL)
+                    APAfactor = NULL, gender=NULL, sentences=NULL)
   class(Res) <- c("statcheck","data.frame")
   OneTailedInTxt <- NULL
   
@@ -198,7 +198,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            dec = dec,
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
-                           gender=gender)
+                           gender=gender,
+                           sentences=sentence)
         
         # Append, clean and close:
         Res <- rbind(Res,tRes)
@@ -293,7 +294,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            dec=dec,
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
-                           gender=gender)
+                           gender=gender,
+                           sentences=sentence)
         
         # Append, clean and close:
         Res <- rbind(Res,FRes)
@@ -388,7 +390,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            dec=dec,
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
-                           gender=gender)
+                           gender=gender,
+                           sentences=sentence)
         
         # Append, clean and close:
         Res <- rbind(Res,rRes)
@@ -482,7 +485,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            dec=dec,
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
-                           gender=gender)
+                           gender=gender,
+                           sentences=sentence)
         
         # Append, clean and close:
         Res <- rbind(Res,zRes)
@@ -572,7 +576,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                               dec=dec,
                               testdec=testdec,
                               OneTailedInTxt=OneTailedInTxt,
-                              gender=gender)
+                              gender=gender,
+                              sentences=sentence)
         
         # Append, clean and close:
         Res <- rbind(Res,chi2Res)
