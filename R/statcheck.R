@@ -909,7 +909,8 @@ Res <- data.frame(Source = Res$Source,
                   OneTailedInTxt = Res$OneTailedInTxt,
                   CopyPaste = Res$CopyPaste,
                   APAfactor = Res$APAfactor,
-                  gender = Res$gender
+                  gender = Res$gender,
+                  sentences = Res$sentences
 )
 
 class(Res) <- c("statcheck","data.frame")
