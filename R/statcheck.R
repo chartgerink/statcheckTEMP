@@ -125,7 +125,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence <- substring(txt,tLoc-100,tLoc+100)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
 
         # remove commas (thousands separators)
         tRaw <- gsub("(?<=\\d),(?=\\d+)","",tRaw,perl=TRUE)
@@ -220,7 +220,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence <- substring(txt,FLoc-100,FLoc+100)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
 
         # Extract location of numbers:
         nums <- gregexpr("(\\d*\\.?\\d+\\s?e?-?\\d*)|ns",FRaw,ignore.case=TRUE)
@@ -317,7 +317,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence <- substring(txt,rLoc-100,rLoc+100)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
 
 
         # Replace weird codings of a minus sign with actual minus sign:
@@ -412,7 +412,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence <- substring(txt,zLoc-100,zLoc+100)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence))
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
 
         # remove any character before test statistic
         zRaw <- gsub(".?(z|Z)","Z",zRaw,perl=TRUE)
