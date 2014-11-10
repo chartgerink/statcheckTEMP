@@ -27,7 +27,9 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                     Value=NULL,Reported.Comparison=NULL,Reported.P.Value=NULL, Computed = NULL, 
                     Error = NULL,DecisionError=NULL,CopyPaste=NULL, Location = NULL,
                     stringsAsFactors=FALSE,dec=NULL,testdec=NULL,OneTail=NULL,OneTailedInTxt=NULL,
-                    APAfactor = NULL, gender=NULL, sentences=NULL)
+                    APAfactor = NULL, gender=NULL, sentences=NULL,
+                    alphaR=NULL, alphaG=NULL, marginal=NULL, significan=NULL, nominal=NULL,
+                    point01=NULL, point10=NULL)
   class(Res) <- c("statcheck","data.frame")
   OneTailedInTxt <- NULL
   
@@ -127,6 +129,15 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
 
+        # Check for mention of alpha
+        alphaR <- grepl("alpha", sentence)
+        alphaG <- grepl("&alpha", sentence) | grepl("&#945", sentence)
+        marginal <- grepl("marginal", sentence)
+        significan <- grepl("significan", sentence)
+        nominal <- grepl("nominal", sentence)
+        point01 <- grepl(".01 ", sentence)
+        point10 <- grepl(".10 ", sentence)
+
         # remove commas (thousands separators)
         tRaw <- gsub("(?<=\\d),(?=\\d+)","",tRaw,perl=TRUE)
         
@@ -199,7 +210,14 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
                            gender=gender,
-                           sentences=sentence)
+                           sentences=sentence,
+                           alphaR=alphaR,
+                           alphaG=alphaG,
+                           marginal=marginal,
+                           significan=significan,
+                           nominal=nominal,
+                           point01=point01,
+                           point10=point10)
         
         # Append, clean and close:
         Res <- rbind(Res,tRes)
@@ -222,6 +240,14 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
 
+        # Check for mention of alpha
+        alphaR <- grepl("alpha", sentence)
+        alphaG <- grepl("&alpha", sentence) | grepl("&#945", sentence)
+        marginal <- grepl("marginal", sentence)
+        significan <- grepl("significan", sentence)
+        nominal <- grepl("nominal", sentence)
+        point01 <- grepl(".01 ", sentence)
+        point10 <- grepl(".10 ", sentence)
         # Extract location of numbers:
         nums <- gregexpr("(\\d*\\.?\\d+\\s?e?-?\\d*)|ns",FRaw,ignore.case=TRUE)
         
@@ -295,7 +321,14 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
                            gender=gender,
-                           sentences=sentence)
+                           sentences=sentence,
+                           alphaR=alphaR,
+                           alphaG=alphaG,
+                           marginal=marginal,
+                           significan=significan,
+                           nominal=nominal,
+                           point01=point01,
+                           point10=point10)
         
         # Append, clean and close:
         Res <- rbind(Res,FRes)
@@ -319,6 +352,14 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
 
+        # Check for mention of alpha
+        alphaR <- grepl("alpha", sentence)
+        alphaG <- grepl("&alpha", sentence) | grepl("&#945", sentence)
+        marginal <- grepl("marginal", sentence)
+        significan <- grepl("significan", sentence)
+        nominal <- grepl("nominal", sentence)
+        point01 <- grepl(".01 ", sentence)
+        point10 <- grepl(".10 ", sentence)
 
         # Replace weird codings of a minus sign with actual minus sign:
         # First remove spaces
@@ -391,7 +432,14 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
                            gender=gender,
-                           sentences=sentence)
+                           sentences=sentence,
+                           alphaR=alphaR,
+                           alphaG=alphaG,
+                           marginal=marginal,
+                           significan=significan,
+                           nominal=nominal,
+                           point01=point01,
+                           point10=point10)
         
         # Append, clean and close:
         Res <- rbind(Res,rRes)
@@ -414,6 +462,14 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
 
+        # Check for mention of alpha
+        alphaR <- grepl("alpha", sentence)
+        alphaG <- grepl("&alpha", sentence) | grepl("&#945", sentence)
+        marginal <- grepl("marginal", sentence)
+        significan <- grepl("significan", sentence)
+        nominal <- grepl("nominal", sentence)
+        point01 <- grepl(".01 ", sentence)
+        point10 <- grepl(".10 ", sentence)
         # remove any character before test statistic
         zRaw <- gsub(".?(z|Z)","Z",zRaw,perl=TRUE)
         
@@ -486,7 +542,14 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
                            gender=gender,
-                           sentences=sentence)
+                           sentences=sentence,
+                           alphaR=alphaR,
+                           alphaG=alphaG,
+                           marginal=marginal,
+                           significan=significan,
+                           nominal=nominal,
+                           point01=point01,
+                           point10=point10)
         
         # Append, clean and close:
         Res <- rbind(Res,zRes)
@@ -577,7 +640,14 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                               testdec=testdec,
                               OneTailedInTxt=OneTailedInTxt,
                               gender=gender,
-                              sentences=sentence)
+                              sentences=sentence,
+                           alphaR=alphaR,
+                           alphaG=alphaG,
+                           marginal=marginal,
+                           significan=significan,
+                           nominal=nominal,
+                           point01=point01,
+                           point10=point10)
         
         # Append, clean and close:
         Res <- rbind(Res,chi2Res)
@@ -910,7 +980,14 @@ Res <- data.frame(Source = Res$Source,
                   CopyPaste = Res$CopyPaste,
                   APAfactor = Res$APAfactor,
                   gender = Res$gender,
-                  sentences = Res$sentences
+                  sentences = Res$sentences,
+                           alphaR=Res$alphaR,
+                           alphaG=Res$alphaG,
+                           marginal=Res$marginal,
+                           significan=Res$significan,
+                           nominal=Res$ominal,
+                           point01=point01,
+                           point10=Res$point10
 )
 
 class(Res) <- c("statcheck","data.frame")
