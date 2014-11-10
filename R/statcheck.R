@@ -573,6 +573,15 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence)  | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" men", sentence) & grepl(" women", sentence))
 
+        # Check for mention of alpha
+        alphaR <- grepl("alpha", sentence)
+        alphaG <- grepl("&alpha", sentence) | grepl("&#945", sentence)
+        marginal <- grepl("marginal", sentence)
+        significan <- grepl("significan", sentence)
+        nominal <- grepl("nominal", sentence)
+        point01 <- grepl(".01 ", sentence)
+        point10 <- grepl(".10 ", sentence)
+
         # remove sample size if reported for calculations
         # save full result for "Raw" in final data frame
         chi2Raw_inclN <- chi2Raw
