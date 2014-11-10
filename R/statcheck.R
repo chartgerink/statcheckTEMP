@@ -27,7 +27,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                     Value=NULL,Reported.Comparison=NULL,Reported.P.Value=NULL, Computed = NULL, 
                     Error = NULL,DecisionError=NULL,CopyPaste=NULL, Location = NULL,
                     stringsAsFactors=FALSE,dec=NULL,testdec=NULL,OneTail=NULL,OneTailedInTxt=NULL,
-                    APAfactor = NULL, gender=NULL, sentences=NULL,
+                    APAfactor = NULL, gender=NULL, sentences100=NULL, sentences500=NULL,
                     alphaR=NULL, alphaG=NULL, marginal=NULL, significan=NULL, nominal=NULL,
                     point01=NULL, point10=NULL)
   class(Res) <- c("statcheck","data.frame")
@@ -125,6 +125,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
         # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,tLoc-100,tLoc+100)
+        sentence500 <- substring(txt,tLoc-500,tLoc+500)
+
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
@@ -210,7 +212,8 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
                            gender=gender,
-                           sentences=sentence,
+                           sentences100=sentence,
+                           sentences500=sentence500,
                            alphaR=alphaR,
                            alphaG=alphaG,
                            marginal=marginal,
@@ -236,6 +239,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
         # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,FLoc-100,FLoc+100)
+        sentence500 <- substring(txt,FLoc-500,tLoc+500)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
@@ -321,7 +325,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
                            gender=gender,
-                           sentences=sentence,
+                           sentences100=sentence,sentences500=sentence500,
                            alphaR=alphaR,
                            alphaG=alphaG,
                            marginal=marginal,
@@ -348,6 +352,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
         # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,rLoc-100,rLoc+100)
+        sentence500 <- substring(txt,rLoc-500,tLoc+500)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
@@ -432,7 +437,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
                            gender=gender,
-                           sentences=sentence,
+                           sentences100=sentence,sentences500=sentence500,
                            alphaR=alphaR,
                            alphaG=alphaG,
                            marginal=marginal,
@@ -458,6 +463,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
        # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,zLoc-100,zLoc+100)
+        sentence500 <- substring(txt,zLoc-500,tLoc+500)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" women", sentence) & grepl(" men", sentence))
@@ -542,7 +548,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                            testdec=testdec,
                            OneTailedInTxt=OneTailedInTxt,
                            gender=gender,
-                           sentences=sentence,
+                           sentences100=sentence,sentences500=sentence500,
                            alphaR=alphaR,
                            alphaG=alphaG,
                            marginal=marginal,
@@ -569,6 +575,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
                 # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,chi2Loc-100,chi2Loc+100)
+        sentence500 <- substring(txt,chi2Loc-500,tLoc+500)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence)  | (grepl("female", sentence) & grepl("male", sentence)) | (grepl(" man", sentence) & grepl(" woman", sentence)) | (grepl(" men", sentence) & grepl(" women", sentence))
@@ -649,7 +656,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
                               testdec=testdec,
                               OneTailedInTxt=OneTailedInTxt,
                               gender=gender,
-                              sentences=sentence,
+                              sentences100=sentence,sentences500=sentence500,
                            alphaR=alphaR,
                            alphaG=alphaG,
                            marginal=marginal,
@@ -989,7 +996,7 @@ Res <- data.frame(Source = Res$Source,
                   CopyPaste = Res$CopyPaste,
                   APAfactor = Res$APAfactor,
                   gender = Res$gender,
-                  sentences = Res$sentences,
+                  sentences100 = Res$sentences100,sentences500=Res$sentence500,
                            alphaR=Res$alphaR,
                            alphaG=Res$alphaG,
                            marginal=Res$marginal,
