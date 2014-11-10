@@ -994,8 +994,8 @@ Res <- data.frame(Source = Res$Source,
                            alphaG=Res$alphaG,
                            marginal=Res$marginal,
                            significan=Res$significan,
-                           nominal=Res$ominal,
-                           point01=point01,
+                           nominal=Res$nominal,
+                           point01=Res$point01,
                            point10=Res$point10
 )
 
