@@ -82,7 +82,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
       
       
       
-      pvalues <- data.frame(Source = names(x)[i], 
+      pvalues <- data.frame(Source = names(x)[1], 
                             Statistic="p", 
                             Reported.Comparison= pEq, 
                             Reported.P.Value=pVals, 
@@ -195,7 +195,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         dec[dec<0] <- 0
         
         # Create data frame:
-        tRes <- data.frame(Source = names(x)[i], 
+        tRes <- data.frame(Source = names(x)[1], 
                            Statistic="t", 
                            df1= NA, 
                            df2=df,
@@ -308,7 +308,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         dec[dec<0] <- NA
         
         # Create data frame:
-        FRes <- data.frame(Source = names(x)[i], 
+        FRes <- data.frame(Source = names(x)[1], 
                            Statistic="F", 
                            df1= df1, 
                            df2= df2,
@@ -420,7 +420,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         dec[dec<0] <- 0
         
         # Create data frame:
-        rRes <- data.frame(Source = names(x)[i], 
+        rRes <- data.frame(Source = names(x)[1], 
                            Statistic="r", 
                            df1= NA, 
                            df2=df,
@@ -531,7 +531,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         dec[dec<0] <- 0
         
         # Create data frame:
-        zRes <- data.frame(Source = names(x)[i], 
+        zRes <- data.frame(Source = names(x)[1], 
                            Statistic="Z", 
                            df1= NA, 
                            df2=NA,
@@ -639,7 +639,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         dec[dec<0] <- 0
         
         # Create data frame:
-        chi2Res <- data.frame(Source = names(x)[i], 
+        chi2Res <- data.frame(Source = names(x)[1], 
                               Statistic="Chi2", 
                               df1= df, 
                               df2=NA,
