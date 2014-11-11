@@ -238,7 +238,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
         # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,FLoc-100,FLoc+100)
-        sentence500 <- substring(txt,FLoc-500,tLoc+500)
+        sentence500 <- substring(txt,FLoc-500,FLoc+500)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence) | grepl("girl", sentence) | grepl("boy", sentence)
@@ -351,7 +351,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
         # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,rLoc-100,rLoc+100)
-        sentence500 <- substring(txt,rLoc-500,tLoc+500)
+        sentence500 <- substring(txt,rLoc-500,rLoc+500)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence) | grepl("girl", sentence) | grepl("boy", sentence)
@@ -462,7 +462,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
        # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,zLoc-100,zLoc+100)
-        sentence500 <- substring(txt,zLoc-500,tLoc+500)
+        sentence500 <- substring(txt,zLoc-500,zLoc+500)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence) | grepl("girl", sentence) | grepl("boy", sentence)
@@ -574,7 +574,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         
                 # Get raw text to check for gender effect (not in normal statcheck package!)
         sentence <- substring(txt,chi2Loc-100,chi2Loc+100)
-        sentence500 <- substring(txt,chi2Loc-500,tLoc+500)
+        sentence500 <- substring(txt,chi2Loc-500,chi2Loc+500)
 
         # Check for mention of gender
         gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence) | grepl("girl", sentence) | grepl("boy", sentence)
