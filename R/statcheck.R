@@ -129,7 +129,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
 
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) | grepl("male", sentence)) | (grepl(" man", sentence) | grepl(" woman", sentence)) | (grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence)) | grepl("boy", sentence)
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence) | grepl("boy", sentence)
         # Check for mention of alpha
         alphaR <- grepl("alpha", sentence)
         alphaG <- grepl("&alpha", sentence) | grepl("&#945", sentence)
@@ -241,7 +241,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence500 <- substring(txt,FLoc-500,tLoc+500)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) | grepl("male", sentence)) | (grepl(" man", sentence) | grepl(" woman", sentence)) | (grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence)) | grepl("boy", senten
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence) | grepl("boy", sentence)
 
         # Check for mention of alpha
         alphaR <- grepl("alpha", sentence)
@@ -354,7 +354,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence500 <- substring(txt,rLoc-500,tLoc+500)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) | grepl("male", sentence)) | (grepl(" man", sentence) | grepl(" woman", sentence)) | (grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence)) | grepl("boy", sentenc
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence) | grepl("boy", sentence)
 
         # Check for mention of alpha
         alphaR <- grepl("alpha", sentence)
@@ -465,7 +465,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence500 <- substring(txt,zLoc-500,tLoc+500)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) | grepl("male", sentence)) | (grepl(" man", sentence) | grepl(" woman", sentence)) | (grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence)) | grepl("boy", sentence
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence) | grepl("boy", sentence)
 
         # Check for mention of alpha
         alphaR <- grepl("alpha", sentence)
@@ -577,7 +577,7 @@ statcheck <- structure(function(# Extract statistics and recompute p-values.
         sentence500 <- substring(txt,chi2Loc-500,tLoc+500)
 
         # Check for mention of gender
-        gender <- grepl("gender", sentence) | grepl("sex", sentence) | (grepl("female", sentence) | grepl("male", sentence)) | (grepl(" man", sentence) | grepl(" woman", sentence)) | (grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence)) | grepl("boy", sentence)
+        gender <- grepl("gender", sentence) | grepl("sex", sentence) | grepl("female", sentence) | grepl("male", sentence) | grepl(" man", sentence) | grepl(" woman", sentence) | grepl(" women", sentence) | grepl(" men", sentence)) | grepl("girl", sentence) | grepl("boy", sentence)
 
         # Check for mention of alpha
         alphaR <- grepl("alpha", sentence)
